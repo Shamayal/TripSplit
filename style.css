@@ -1,0 +1,21 @@
+/* Color Palette */
+:root {
+  --icy-blue: #a8e0ff;
+  --frosted-blue: #8ee3f5;
+  --pearl-aqua: #70cad1;
+  --dusk-blue: #3e517a;
+  --lilac-ash: #b08ea2;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--icy-blue);
+  color: var(--dusk-blue);
+}
