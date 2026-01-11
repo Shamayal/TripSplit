@@ -37,3 +37,25 @@ margin-bottom: 25px;
 border-radius: 8px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 20px;
+}
+
+th,
+td {
+border: 1px solid var(--pearl-aqua);
+padding: 10px;
+text-align: left;
+}
+
+th {
+background-color: var(--frosted-blue);
+color: var(--dusk-blue);
+}
+
+tr:nth-child(even) td {
+background-color: #f7fbfc;
+}
