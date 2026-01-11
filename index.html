@@ -9,25 +9,85 @@
   </head>
   <body>
     <h1>TripSplit</h1>
-    <h2>Trip Expenses</h2>
-    <div>
+    <main>
+      <section>
+        <h2>Trip Expenses</h2>
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Expense</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <!-- let users add custom expense types -->
+            <th>Paid By</th>
+            <th>Member A</th>
+            <th>Member B</th>
+          </tr>
+          <tr>
+            <td>Dec 28, 2025</td>
+            <td>Pistachio Croissant</td>
+            <td>$ 5</td>
+            <td>Food</td>
+            <td>Member A</td>
+            <td>$2.50</td>
+            <td>$2.50</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+    <section>
+      <h2>Trip Members</h2>
       <table>
         <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Amount</th>
-          <th>Type</th>
-          <th>Paid By</th>
-        </tr>
-        <tr>
-          <td>Dec 28, 2025</td>
-          <td>Croissant</td>
-          <td>5</td>
-          <td>Food</td>
-          <td>Jane Doe</td>
+          <td>Member A</td>
+          <td>Member B</td>
+          <td>Member C</td>
         </tr>
       </table>
-    </div>
-    <div><h3>Add Person</h3></div>
+    </section>
+    <section>
+      <h2>Add Trip Member</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+      </form>
+    </section>
+    <section>
+      <h2>Add Trip Expense</h2>
+      <form>
+        <!-- Date -->
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" />
+        <!-- Expense -->
+        <label for="expense">Expense:</label>
+        <input id="text" name="expense" />
+        <!-- Amount -->
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" />
+        <!-- Type -->
+        <label for="expenseType">ExpenseType Type:</label>
+        <select id="expenseType" name="expenseType">
+          <option value="food">Food</option>
+          <option value="transportation">Transportation</option>
+          <option value="souvenirs">Souvenirs</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="miscellaneous">Miscellaneous</option>
+        </select>
+        <!-- Paid By -->
+        <label for="paidBy">Paid By:</label>
+        <select id="paidBy" name="paidBy">
+          <option value="A">Member A</option>
+          <option value="B">Member B</option>
+          <option value="C">Member C</option>
+        </select>
+        <!-- Owed By -->
+        <label for="owedBy">Owed By:</label>
+        <select id="owedBy" name="owedBy">
+          <option value="A">Member A</option>
+          <option value="B">Member B</option>
+          <option value="C">Member C</option>
+        </select>
+      </form>
+    </section>
   </body>
 </html>
