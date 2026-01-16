@@ -1,10 +1,10 @@
 /* Color Palette */
 :root {
-  --icy-blue: #a8e0ff;
-  --frosted-blue: #8ee3f5;
-  --pearl-aqua: #70cad1;
-  --dusk-blue: #3e517a;
-  --lilac-ash: #b08ea2;
+  --vintage-berry: #9A275A;
+  --blush-rose: #E36588;
+  --dusk-blue: #36558F;
+  --cream: #FBFFB9;
+  --sky-blue: #97D2FB;
 }
 
 /* Global styles */
@@ -16,8 +16,8 @@
 body {
   margin: 0;
   padding: 20px;
-  background-color: var(--icy-blue);
-  color: var(--dusk-blue);
+  background-color: var(--dusk-blue);
+  color: var(--vintage-berry);
 }
 
 main {
@@ -32,7 +32,7 @@ margin-bottom: 30px;
 
 h2 {
 margin-top: 0;
-color: var(--dusk-blue);
+color: var(--vintage-berry);
 }
 
 section {
@@ -51,14 +51,14 @@ margin-bottom: 20px;
 
 th,
 td {
-border: 1px solid var(--pearl-aqua);
+border: 1px solid var(--sky-blue);
 padding: 10px;
 text-align: left;
 }
 
 th {
-background-color: var(--frosted-blue);
-color: var(--dusk-blue);
+background-color: var(--blush-rose);
+color: var(--vintage-berry);
 }
 
 tr:nth-child(even) td {
@@ -80,7 +80,7 @@ align-self: center;
 input,
 select {
 padding: 8px;
-border: 1px solid var(--pearl-aqua);
+border: 1px solid var(--sky-blue);
 border-radius: 4px;
 font-size: 14px;
 }
@@ -88,6 +88,6 @@ font-size: 14px;
 input:focus,
 select:focus {
 outline: none;
-border-color: var(--dusk-blue);
+border-color: var(--vintage-berry);
 box-shadow: 0 0 4px rgba(62, 81, 122, 0.4);
 }
