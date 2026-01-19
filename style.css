@@ -36,7 +36,7 @@ color: var(--vintage-berry);
 }
 
 section {
-background-color: #ffffff;
+background-color: var(--cream);
 padding: 20px;
 margin-bottom: 25px;
 border-radius: 8px;
