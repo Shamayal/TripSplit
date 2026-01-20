@@ -91,3 +91,30 @@ addExpenseForm.addEventListener("submit", function (event) {
   addExpenseForm.reset();
   console.log(expenses)
 });
+
+const addCategoryForm = document.getElementById("add-category");
+const categoryTypeSelect = document.getElementById("categoryType");
+const categoryNameInput = document.getElementById("categoryName");
+// Dropdown in the Add Expense form
+const expenseTypeSelect = document.getElementById("expenseType");
+
+addCategoryForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const type = categoryTypeSelect.value;
+  const categoryName = categoryNameInput.value.trim();
+
+  if (!categoryName) return;
+
+  // Save in array
+  expenseCategories[type].push(categoryName);
+
+  // Add option to Add Expense dropdown
+  const option = document.createElement("option");
+  option.value = categoryName.toLowerCase().replace(/\s+/g, "-");
+  option.textContent = categoryName;
+
+  expenseTypeSelect.appendChild(option);
+
+  addCategoryForm.reset();
+});
