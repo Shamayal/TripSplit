@@ -17,11 +17,11 @@ let expenses = [
   }
 ];
 
-const membersForm = document.getElementById('add-member');
+const addMembersForm = document.getElementById('add-member');
 const membersTable = document.getElementById('trip-members');
 const nameInput = document.getElementById('name');
 
-membersForm.addEventListener("submit", function (event) {
+addMembersForm.addEventListener("submit", function (event) {
   event.preventDefault();
   
   const memberName = nameInput.value.trim();
@@ -29,7 +29,7 @@ membersForm.addEventListener("submit", function (event) {
   
   const row = membersTable.insertRow();
   const cell = row.insertCell(0);
-  cell.textContent = name;
+  cell.textContent = memberName;
 
   nameInput.value = "";
 
