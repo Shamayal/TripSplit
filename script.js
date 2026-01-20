@@ -3,13 +3,13 @@ let members = [
   'Member B'
 ];
 
-let expenseCategories = {
-  food: "Food",
-  transportation: "Transportation",
-  souvenirs: "Souvenirs",
-  entertainment: "Entertainment",
-  miscellaneous: "Miscellaneous"
-};
+let expenseCategories = [
+  'Food',
+  'Transportation',
+  'Souvenirs',
+  'Entertainment',
+  'Miscellaneous'
+];
 
 let expenses = [
   {
@@ -107,7 +107,7 @@ addCategoryForm.addEventListener("submit", function (event) {
   if (!categoryName) return;
 
   // Save in array
-  expenseCategories[type].push(categoryName);
+  expenseCategories.push(categoryName);
 
   // Add option to Add Expense dropdown
   const option = document.createElement("option");
