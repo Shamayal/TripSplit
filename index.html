@@ -26,7 +26,7 @@
           </tr>
         </table>
         <h2>Trip Expenses</h2>
-        <table>
+        <table id="trip-expenses">
           <tr>
             <th>Date</th>
             <th>Expense</th>
@@ -68,13 +68,13 @@
     </section>
     <section>
       <h2>Add Trip Expense</h2>
-      <form>
+      <form id="add-expense">
         <!-- Date -->
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" />
         <!-- Expense -->
         <label for="expense">Expense:</label>
-        <input id="text" name="expense" />
+        <input type="text" id="expense" name="expense" />
         <!-- Amount -->
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" />
@@ -101,6 +101,7 @@
           <option value="B">Member B</option>
           <option value="C">Member C</option>
         </select>
+        <button type="submit">Add Expense</button>
       </form>
     </section>
     <section>

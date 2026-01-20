@@ -62,7 +62,7 @@ addExpenseForm.addEventListener("submit", function (event) {
   // Add to array
   expenses.push({
     Date: date,
-    Expense: expenseName,
+    Expense: expense,
     Amount: amount,
     Type: type,
     PaidBy: paidBy,
@@ -73,7 +73,7 @@ addExpenseForm.addEventListener("submit", function (event) {
   const row = expensesTable.insertRow();
 
   row.insertCell(0).textContent = date;
-  row.insertCell(1).textContent = expenseName;
+  row.insertCell(1).textContent = expense;
   row.insertCell(2).textContent = `$${amount}`;
   row.insertCell(3).textContent = type;
   row.insertCell(4).textContent = paidBy;
@@ -81,5 +81,5 @@ addExpenseForm.addEventListener("submit", function (event) {
 
   // Reset form
   addExpenseForm.reset();
-
+  console.log(expenses)
 });
