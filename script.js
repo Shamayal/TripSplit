@@ -3,6 +3,14 @@ let members = [
   'Member B'
 ];
 
+let expenseCategories = {
+  food: "Food",
+  transportation: "Transportation",
+  souvenirs: "Souvenirs",
+  entertainment: "Entertainment",
+  miscellaneous: "Miscellaneous"
+};
+
 let expenses = [
   {
     Date: 'Dec 28, 2025',
