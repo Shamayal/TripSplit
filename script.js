@@ -92,6 +92,7 @@ addExpenseForm.addEventListener("submit", function (event) {
   console.log(expenses)
 });
 
+// Adding Expense Categories
 const addCategoryForm = document.getElementById("add-category");
 const categoryTypeSelect = document.getElementById("categoryType");
 const categoryNameInput = document.getElementById("categoryName");
@@ -103,7 +104,6 @@ addCategoryForm.addEventListener("submit", function (event) {
 
   const type = categoryTypeSelect.value;
   const categoryName = categoryNameInput.value.trim();
-
   if (!categoryName) return;
 
   // Save in array
@@ -114,7 +114,8 @@ addCategoryForm.addEventListener("submit", function (event) {
   option.value = categoryName.toLowerCase().replace(/\s+/g, "-");
   option.textContent = categoryName;
 
-  expenseTypeSelect.appendChild(option);
+  categoryTypeSelect.appendChild(option);
+  expenseTypeSelect.appendChild(option.cloneNode(true));
 
   addCategoryForm.reset();
 });
