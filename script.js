@@ -102,20 +102,26 @@ const expenseTypeSelect = document.getElementById("expenseType");
 addCategoryForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const type = categoryTypeSelect.value;
   const categoryName = categoryNameInput.value.trim();
   if (!categoryName) return;
 
   // Save in array
   expenseCategories.push(categoryName);
 
-  // Add option to Add Expense dropdown
-  const option = document.createElement("option");
-  option.value = categoryName.toLowerCase().replace(/\s+/g, "-");
-  option.textContent = categoryName;
-
-  categoryTypeSelect.appendChild(option);
-  expenseTypeSelect.appendChild(option.cloneNode(true));
+  renderExpenseTypes();
 
   addCategoryForm.reset();
 });
+
+function renderExpenseTypes() {
+  expenseTypeSelect.innerHTML = "";
+
+  expenseCategories.forEach(category => {
+    const option = document.createElement("option");
+    option.value = category.toLowerCase().replace(/\s+/g, "-");
+    option.textContent = category;
+    expenseTypeSelect.appendChild(option);
+  });
+}
+
+renderExpenseTypes();
