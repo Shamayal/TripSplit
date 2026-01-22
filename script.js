@@ -120,7 +120,8 @@ function renderExpenseTypes() {
     const option = document.createElement("option");
     option.value = category.toLowerCase().replace(/\s+/g, "-");
     option.textContent = category;
-    expenseTypeSelect.appendChild(option);
+    categoryTypeSelect.appendChild(option);
+    expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
   });
 }
 
