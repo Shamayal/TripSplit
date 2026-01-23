@@ -126,3 +126,8 @@ function renderExpenseTypes() {
 }
 
 renderExpenseTypes();
+
+// function to add to expenses array
+function addExpense() {
+  
+}
