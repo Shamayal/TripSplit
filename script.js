@@ -131,3 +131,5 @@ renderExpenseTypes();
 function addExpense() {
   
 }
+
+// create functions to delete items from tables
