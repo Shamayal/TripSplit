@@ -133,3 +133,6 @@ function addExpense() {
 }
 
 // create functions to delete items from tables
+
+
+// create function to delete member - would it delete calculations?
