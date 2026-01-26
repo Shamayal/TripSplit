@@ -136,3 +136,5 @@ function addExpense() {
 
 
 // create function to delete member - would it delete calculations?
+
+// create function to add or delete trips
