@@ -55,6 +55,9 @@ const expenseInputType = document.getElementById('expenseType');
 const expensesInputPaidBy = document.getElementById('paidBy');
 const expenseInputOwedBy = document.getElementById('owedBy');
 
+const today = new Date().toISOString().split("T")[0];
+expensesInputDate.value = today;
+
 addExpenseForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -89,6 +92,7 @@ addExpenseForm.addEventListener("submit", function (event) {
 
   // Reset form
   addExpenseForm.reset();
+  expensesInputDate.value = new Date().toISOString().split("T")[0];
   console.log(expenses)
 });
 
