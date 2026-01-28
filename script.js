@@ -83,6 +83,7 @@ addExpenseForm.addEventListener("submit", function (event) {
   // Add row to expenses table
   const row = expensesTable.insertRow();
 
+  // replace this with function to populate tables
   row.insertCell(0).textContent = date;
   row.insertCell(1).textContent = expense;
   row.insertCell(2).textContent = `$${amount}`;
