@@ -143,3 +143,11 @@ function addExpense() {
 // create function to delete member - would it delete calculations?
 
 // create function to add or delete trips
+
+function formatDate(dateStr) {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+}
