@@ -137,6 +137,13 @@ function addExpense() {
   
 }
 
+function renderMembers() {
+
+}
+
+function renderExpenseCategories() {
+  
+}
 // create functions to delete items from tables
 
 
