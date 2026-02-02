@@ -20,10 +20,22 @@ body {
   color: var(--vintage-berry);
 }
 
+/* Layout */
+
 main {
 max-width: 900px;
 margin: 0 auto;
 }
+
+section {
+background-color: var(--cream);
+padding: 20px;
+margin-bottom: 25px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Typography */
 
 h1 {
 text-align: center;
@@ -35,13 +47,7 @@ margin-top: 0;
 color: var(--vintage-berry);
 }
 
-section {
-background-color: var(--cream);
-padding: 20px;
-margin-bottom: 25px;
-border-radius: 8px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
+/* Tables */
 
 table {
 width: 100%;
@@ -65,6 +71,7 @@ tr:nth-child(even) td {
 background-color: #f7fbfc;
 }
 
+/* Forms */
 form {
 display: grid;
 grid-template-columns: 150px 1fr;
@@ -91,3 +98,5 @@ outline: none;
 border-color: var(--vintage-berry);
 box-shadow: 0 0 4px rgba(62, 81, 122, 0.4);
 }
+
+/* Buttons */
