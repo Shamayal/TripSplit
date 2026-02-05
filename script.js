@@ -56,6 +56,26 @@ function addMemberToDropdown(memberName) {
   expensesInputOwedBy.appendChild(owedOption);
 }
 
+addMembersForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const memberName = nameInput.value.trim();
+  if (!memberName) return;
+
+  // Add to members array
+  members.push(memberName);
+
+  // Add to table
+  const row = membersTable.insertRow();
+  const cell = row.insertCell(0);
+  cell.textContent = memberName;
+
+  // Add to dropdowns
+  addMemberToDropdown(memberName);
+
+  nameInput.value = "";
+});
+
 // Adding New Expenses to the Trip Expenses Table
 const addExpenseForm = document.getElementById('add-expense');
 const expensesTable = document.getElementById('trip-expenses');
