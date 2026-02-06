@@ -189,3 +189,31 @@ function formatDate(dateStr) {
     year: "numeric"
   });
 }
+
+function renderExpenses() {
+  // Clear existing rows (except header)
+  expensesTable.innerHTML = `
+    <tr>
+      <th>Date</th>
+      <th>Expense</th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Paid By</th>
+      ${members.map(m => `<th>${m}</th>`).join('')}
+    </tr>
+  `;
+
+  expenses.forEach(exp => {
+    const row = expensesTable.insertRow();
+    row.insertCell(0).textContent = formatDate(exp.Date);
+    row.insertCell(1).textContent = exp.Expense;
+    row.insertCell(2).textContent = `$${exp.Amount}`;
+    row.insertCell(3).textContent = exp.Type;
+    row.insertCell(4).textContent = exp.PaidBy;
+
+    members.forEach(member => {
+      const splitAmount = exp.Split?.[member.replace(/\s+/g, "")] || "$0";
+      row.insertCell().textContent = splitAmount;
+    });
+  });
+}
