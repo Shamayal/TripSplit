@@ -217,3 +217,8 @@ function renderExpenses() {
     });
   });
 }
+
+function calculateSummary() {
+  const summary = [];
+  return summary;
+}
