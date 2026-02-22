@@ -34,15 +34,19 @@ addMembersForm.addEventListener("submit", function (event) {
   event.preventDefault();
   
   const memberName = nameInput.value.trim();
-  if (memberName === "") return;
-  
-  const row = membersTable.insertRow();
-  const cell = row.insertCell(0);
-  cell.textContent = memberName;
+  if (!memberName) return;
+
+  // Add to members array
+  members.push(memberName);
+
+  // Add to dropdown
+  addMemberToDropdown(memberName);
+
+  renderExpenses(); // update header dynamically
 
   nameInput.value = "";
-
 });
+
 // Need to add member to add expense drop down and also main tables
 function addMemberToDropdown(memberName) {
   const paidOption = document.createElement("option");
@@ -55,26 +59,6 @@ function addMemberToDropdown(memberName) {
   owedOption.textContent = memberName;
   expensesInputOwedBy.appendChild(owedOption);
 }
-
-addMembersForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const memberName = nameInput.value.trim();
-  if (!memberName) return;
-
-  // Add to members array
-  members.push(memberName);
-
-  // Add to table
-  const row = membersTable.insertRow();
-  const cell = row.insertCell(0);
-  cell.textContent = memberName;
-
-  // Add to dropdowns
-  addMemberToDropdown(memberName);
-
-  nameInput.value = "";
-});
 
 // Adding New Expenses to the Trip Expenses Table
 const addExpenseForm = document.getElementById('add-expense');
