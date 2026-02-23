@@ -39,6 +39,9 @@ addMembersForm.addEventListener("submit", function (event) {
   // Add to members array
   members.push(memberName);
 
+  // Add to table
+  addMemberToTable(memberName);
+
   // Add to dropdown
   addMemberToDropdown(memberName);
 
@@ -46,6 +49,12 @@ addMembersForm.addEventListener("submit", function (event) {
 
   nameInput.value = "";
 });
+
+function addMemberToTable(name) {
+  const row = membersTable.insertRow();
+  const cell = row.insertCell(0);
+  cell.textContent = name;
+}
 
 // Need to add member to add expense drop down and also main tables
 function addMemberToDropdown(memberName) {
