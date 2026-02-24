@@ -15,7 +15,7 @@ let expenses = [
   {
     Date: 'Dec 28, 2025',
     Expense: 'Pistachio Croissant',
-    Amount: '$5',
+    Amount: 5,
     Type: 'Food',
     PaidBy: 'Member A',
     Split: {
