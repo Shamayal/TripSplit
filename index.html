@@ -14,7 +14,7 @@
       <section>
         <h2>Summary</h2>
         <!-- table for who owes who what -->
-        <table>
+        <!-- <table>
           <tr>
             <th>Owes</th>
             <th>To</th>
@@ -33,7 +33,6 @@
             <th>Expense</th>
             <th>Amount</th>
             <th>Type</th>
-            <!-- let users add custom expense types -->
             <th>Paid By</th>
             <th>Member A</th>
             <th>Member B</th>
@@ -47,20 +46,16 @@
             <td>$2.50</td>
             <td>$2.50</td>
           </tr>
-        </table>
+        </table> -->
       </section>
     </main>
     <!-- Trip Members -->
     <section>
       <h2>Trip Members</h2>
       <table id="trip-members">
-        <tr>
-          <td>Member A</td>
-        </tr>
-        <tr>
-          <td>Member B</td>
-        </tr>
+        <!-- rows are now rendered dynamically by renderMembers() -->
       </table>
+      
       <h3>Add Trip Member</h3>
       <form id="add-member">
         <label for="name">Name:</label>
@@ -73,38 +68,38 @@
       <h2>Add Trip Expense</h2>
       <form id="add-expense">
         <!-- Date -->
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required />
+        <!-- <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required /> -->
         <!-- Expense -->
-        <label for="expense">Expense:</label>
-        <input type="text" id="expense" name="expense" required />
+        <!-- <label for="expense">Expense:</label>
+        <input type="text" id="expense" name="expense" required /> -->
         <!-- Amount -->
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" min="0.01" step="0.01" required />
+        <!-- <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" min="0.01" step="0.01" required /> -->
         <!-- Type -->
-        <label for="expenseType">Expense Type:</label>
+        <!-- <label for="expenseType">Expense Type:</label>
         <select id="expenseType" name="expenseType">
           <option value="food">Food</option>
           <option value="transportation">Transportation</option>
           <option value="souvenirs">Souvenirs</option>
           <option value="entertainment">Entertainment</option>
           <option value="miscellaneous">Miscellaneous</option>
-        </select>
+        </select> -->
         <!-- Paid By -->
-        <label for="paidBy">Paid By:</label>
+        <!-- <label for="paidBy">Paid By:</label>
         <select id="paidBy" name="paidBy">
           <option value="A">Member A</option>
           <option value="B">Member B</option>
           <option value="C">Member C</option>
-        </select>
+        </select> -->
         <!-- Owed By -->
-        <label for="owedBy">Owed By:</label>
+        <!-- <label for="owedBy">Owed By:</label>
         <select id="owedBy" name="owedBy">
           <option value="A">Member A</option>
           <option value="B">Member B</option>
           <option value="C">Member C</option>
         </select>
-        <button type="submit">Add Expense</button>
+        <button type="submit">Add Expense</button> -->
       </form>
     </section>
     <!-- Expense Categories -->
@@ -112,7 +107,7 @@
       <h2>Expense Categories</h2>
       <form id="add-category">
         <!-- Type -->
-        <label for="categoryType">Expense Type:</label>
+        <!-- <label for="categoryType">Expense Type:</label>
         <select id="categoryType" name="categoryType">
           <option value="food">Food</option>
           <option value="transportation">Transportation</option>
@@ -123,7 +118,7 @@
 
         <label for="categoryName">Expense Category:</label>
         <input type="text" id="categoryName" name="categoryName" required />
-        <button type="submit">Add Expense Category</button>
+        <button type="submit">Add Expense Category</button> -->
       </form>
     </section>
     <footer><p>Designed By: Shamayal 👩‍💻</p></footer>
