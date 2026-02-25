@@ -1,34 +1,66 @@
-let members = [
-  'Member A',
-  'Member B'
-];
+let tripData = {
+  members: ["Member A", "Member B"],
+  categories: [
+    "Food",
+    "Transportation",
+    "Souvenirs",
+    "Entertainment",
+    "Miscellaneous"
+  ],
+  expenses: []
+};
 
-let expenseCategories = [
-  'Food',
-  'Transportation',
-  'Souvenirs',
-  'Entertainment',
-  'Miscellaneous'
-];
+// let expenseCategories = [
+//   'Food',
+//   'Transportation',
+//   'Souvenirs',
+//   'Entertainment',
+//   'Miscellaneous'
+// ];
 
-let expenses = [
-  {
-    Date: 'Dec 28, 2025',
-    Expense: 'Pistachio Croissant',
-    Amount: 5,
-    Type: 'Food',
-    PaidBy: 'Member A',
-    Split: {
-      MemberA: '$2.50',
-      MemberB: '$2.50',
-    }
-  }
-];
+// let expenses = [
+//   {
+//     Date: 'Dec 28, 2025',
+//     Expense: 'Pistachio Croissant',
+//     Amount: 5,
+//     Type: 'Food',
+//     PaidBy: 'Member A',
+//     Split: {
+//       MemberA: '$2.50',
+//       MemberB: '$2.50',
+//     }
+//   }
+// ];
 
-// Adding New Members to the Members Table
-const addMembersForm = document.getElementById('add-member');
+// Members
 const membersTable = document.getElementById('trip-members');
+const addMembersForm = document.getElementById('add-member');
 const nameInput = document.getElementById('name');
+
+function renderMembers() {
+  // Clear table
+  membersTable.innerHTML = "";
+
+  // Add to members table
+  tripData.members.forEach(member => {
+    const row = membersTable.insertRow();
+    const cell = row.insertCell();
+    cell.textContent = member;
+  });
+
+  // Add member to dropdown
+  tripData.members.forEach(member => {
+    // const paidOption = document.createElement("option");
+    // paidOption.value = memberName;
+    // paidOption.textContent = memberName;
+    // expensesInputPaidBy.appendChild(paidOption);
+
+    // const owedOption = document.createElement("option");
+    // owedOption.value = memberName;
+    // owedOption.textContent = memberName;
+    // expensesInputOwedBy.appendChild(owedOption);
+  });
+}
 
 addMembersForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -36,39 +68,19 @@ addMembersForm.addEventListener("submit", function (event) {
   const memberName = nameInput.value.trim();
   if (!memberName) return;
 
-  // Add to members array
-  members.push(memberName);
+  // Add to members array in trip data 
+  tripData.members.push(memberName);
 
-  // Add to table
-  addMemberToTable(memberName);
-
-  // Add to dropdown
-  addMemberToDropdown(memberName);
-
-  renderExpenses(); // update header dynamically
-
+  // Clear input
   nameInput.value = "";
+
+  // Re-render table and dropdowns
+  renderMembers();
 });
 
-function addMemberToTable(name) {
-  const row = membersTable.insertRow();
-  const cell = row.insertCell(0);
-  cell.textContent = name;
-}
+renderMembers();
 
-// Need to add member to add expense drop down and also main tables
-function addMemberToDropdown(memberName) {
-  const paidOption = document.createElement("option");
-  paidOption.value = memberName;
-  paidOption.textContent = memberName;
-  expensesInputPaidBy.appendChild(paidOption);
-
-  const owedOption = document.createElement("option");
-  owedOption.value = memberName;
-  owedOption.textContent = memberName;
-  expensesInputOwedBy.appendChild(owedOption);
-}
-
+/*
 // Adding New Expenses to the Trip Expenses Table
 const addExpenseForm = document.getElementById('add-expense');
 const expensesTable = document.getElementById('trip-expenses');
@@ -161,10 +173,6 @@ function addExpense() {
   
 }
 
-function renderMembers() {
-
-}
-
 function renderExpenseCategories() {
   
 }
@@ -215,3 +223,4 @@ function calculateSummary() {
   const summary = [];
   return summary;
 }
+*/
