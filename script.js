@@ -1,36 +1,22 @@
 let tripData = {
-  members: ["Member A", "Member B"],
+  members: ['Member A', 'Member B'],
   categories: [
-    "Food",
-    "Transportation",
-    "Souvenirs",
-    "Entertainment",
-    "Miscellaneous"
+    'Food',
+    'Transportation',
+    'Souvenirs',
+    'Entertainment',
+    'Miscellaneous'
   ],
-  expenses: []
+  expenses: [
+    {
+      Date: 'Feb 24, 2025',
+      Expense: 'Pistachio Croissant',
+      Amount: 5,
+      Type: 'Food',
+      PaidBy: 'Member A'
+    }
+  ]
 };
-
-// let expenseCategories = [
-//   'Food',
-//   'Transportation',
-//   'Souvenirs',
-//   'Entertainment',
-//   'Miscellaneous'
-// ];
-
-// let expenses = [
-//   {
-//     Date: 'Dec 28, 2025',
-//     Expense: 'Pistachio Croissant',
-//     Amount: 5,
-//     Type: 'Food',
-//     PaidBy: 'Member A',
-//     Split: {
-//       MemberA: '$2.50',
-//       MemberB: '$2.50',
-//     }
-//   }
-// ];
 
 // Members
 const membersTable = document.getElementById('trip-members');
@@ -79,6 +65,46 @@ addMembersForm.addEventListener("submit", function (event) {
 });
 
 renderMembers();
+
+// Categories
+const addCategoryForm = document.getElementById("add-category");
+const categoryTypeSelect = document.getElementById("categoryType");
+const categoryNameInput = document.getElementById("categoryName");
+// Dropdown in the Add Expense form
+// const expenseTypeSelect = document.getElementById("expenseType");
+
+function renderCategories() {
+  // Clear dropdown
+  expenseTypeSelect.innerHTML = "";
+
+  // Add to categories dropdown
+  tripData.categories.forEach(category => {
+    // const option = document.createElement("option");
+    // option.value = category.toLowerCase().replace(/\s+/g, "-");
+    // option.textContent = category;
+    // categoryTypeSelect.appendChild(option);
+    // expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
+  })
+}
+
+addCategoryForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const categoryName = categoryNameInput.value.trim();
+  if (!categoryName) return;
+
+  // Add to categories array in trip data
+  tripData.categories.push(categoryName);
+
+  // Clear input
+  categoryNameInput.value = "";
+
+  // Re-render dropdown
+  renderCategories();
+  addCategoryForm.reset();
+});
+
+renderCategories();
 
 /*
 // Adding New Expenses to the Trip Expenses Table
