@@ -82,11 +82,12 @@ const addCategoryForm = document.getElementById("add-category");
 const categoryTypeSelect = document.getElementById("categoryType");
 const categoryNameInput = document.getElementById("categoryName");
 // Dropdown in the Add Expense form
-// const expenseTypeSelect = document.getElementById("expenseType");
+const expenseTypeSelect = document.getElementById("expenseType");
 
 function renderCategories() {
   // Clear dropdown
   categoryTypeSelect.innerHTML = "";
+  expenseTypeSelect.innerHTML = "";
 
   // Add to categories dropdown
   tripData.categories.forEach(category => {
@@ -94,7 +95,7 @@ function renderCategories() {
     option.value = category.toLowerCase().replace(/\s+/g, "-");
     option.textContent = category;
     categoryTypeSelect.appendChild(option);
-    // expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
+    expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
   })
 }
 
