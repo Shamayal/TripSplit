@@ -1,8 +1,8 @@
 let tripData = {
   members: ['Member A', 'Member B'],
   categories: [
-    'Food',
-    'Transportation',
+    'Food 🌯',
+    'Transportation ✈️',
     'Souvenirs',
     'Entertainment',
     'Miscellaneous'
@@ -12,7 +12,7 @@ let tripData = {
       Date: 'Feb 24, 2025',
       Expense: 'Pistachio Croissant',
       Amount: 5,
-      Type: 'Food',
+      Type: 'Food 🌯',
       PaidBy: 'Member A'
     }
   ]
@@ -52,7 +52,18 @@ addMembersForm.addEventListener("submit", function (event) {
   event.preventDefault();
   
   const memberName = nameInput.value.trim();
+  // empty input
   if (!memberName) return;
+
+  // check for duplicates (case-insensitive)
+  const duplicateName = tripData.members.find(
+    member => member.toLowerCase() === memberName.toLowerCase()
+  );
+
+  if (duplicateName) {
+    alert(`${duplicateName} is already a member!`);
+    return;
+  }
 
   // Add to members array in trip data 
   tripData.members.push(memberName);
@@ -158,41 +169,6 @@ addExpenseForm.addEventListener("submit", function (event) {
   expensesInputDate.value = new Date().toISOString().split("T")[0];
   console.log(expenses)
 });
-
-// Adding Expense Categories
-const addCategoryForm = document.getElementById("add-category");
-const categoryTypeSelect = document.getElementById("categoryType");
-const categoryNameInput = document.getElementById("categoryName");
-// Dropdown in the Add Expense form
-const expenseTypeSelect = document.getElementById("expenseType");
-
-addCategoryForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const categoryName = categoryNameInput.value.trim();
-  if (!categoryName) return;
-
-  // Save in array
-  expenseCategories.push(categoryName);
-
-  renderExpenseTypes();
-
-  addCategoryForm.reset();
-});
-
-function renderExpenseTypes() {
-  expenseTypeSelect.innerHTML = "";
-
-  expenseCategories.forEach(category => {
-    const option = document.createElement("option");
-    option.value = category.toLowerCase().replace(/\s+/g, "-");
-    option.textContent = category;
-    categoryTypeSelect.appendChild(option);
-    expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
-  });
-}
-
-renderExpenseTypes();
 
 // function to add to expenses array
 function addExpense() {
