@@ -75,14 +75,14 @@ const categoryNameInput = document.getElementById("categoryName");
 
 function renderCategories() {
   // Clear dropdown
-  expenseTypeSelect.innerHTML = "";
+  categoryTypeSelect.innerHTML = "";
 
   // Add to categories dropdown
   tripData.categories.forEach(category => {
-    // const option = document.createElement("option");
-    // option.value = category.toLowerCase().replace(/\s+/g, "-");
-    // option.textContent = category;
-    // categoryTypeSelect.appendChild(option);
+    const option = document.createElement("option");
+    option.value = category.toLowerCase().replace(/\s+/g, "-");
+    option.textContent = category;
+    categoryTypeSelect.appendChild(option);
     // expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
   })
 }
