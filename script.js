@@ -122,24 +122,20 @@ addCategoryForm.addEventListener("submit", function (event) {
 });
 
 renderCategories();
-/*
+
 // Expenses
 const addExpenseForm = document.getElementById("add-expense");
-const categoryTypeSelect = document.getElementById("categoryType");
-const categoryNameInput = document.getElementById("categoryName");
-// Dropdown in the Add Expense form
-const expenseTypeSelect = document.getElementById("expenseType");
-
-const expensesTable = document.getElementById('trip-expenses');
 const expensesInputDate = document.getElementById('date');
-const expenseInputExpense = document.getElementById('expense');
+const expensesInputExpense = document.getElementById('expense');
 const expensesInputAmount = document.getElementById('amount');
-const expenseInputType = document.getElementById('expenseType');
-
+const expenseInputCategory = document.getElementById('expenseCategory');
 
 const today = new Date().toISOString().split("T")[0];
+
+// Set default date to current date
 expensesInputDate.value = today;
 
+addExpenseForm.
 addExpenseForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -187,6 +183,9 @@ function formatDate(dateStr) {
   });
 }
 
+// const expensesTable = document.getElementById('trip-expenses');
+
+/*
 function renderExpenses() {
   // Clear existing rows (except header)
   expensesTable.innerHTML = `
