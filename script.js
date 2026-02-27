@@ -19,7 +19,7 @@ let tripData = {
 };
 
 const expensesInputPaidBy = document.getElementById('paidBy');
-const expensesInputOwedBy = document.getElementById('owedBy');
+// const expensesInputOwedBy = document.getElementById('owedBy');
 
 // Members
 const membersTable = document.getElementById('trip-members');
@@ -30,7 +30,7 @@ function renderMembers() {
   // Clear table
   membersTable.innerHTML = "";
   expensesInputPaidBy.innerHTML = "";
-  expensesInputOwedBy.innerHTML = "";
+  // expensesInputOwedBy.innerHTML = "";
 
   // Add to members table
   tripData.members.forEach(member => {
@@ -46,10 +46,10 @@ function renderMembers() {
     paidOption.textContent = member;
     expensesInputPaidBy.appendChild(paidOption);
 
-    const owedOption = document.createElement("option");
-    owedOption.value = member;
-    owedOption.textContent = member;
-    expensesInputOwedBy.appendChild(owedOption);
+    // const owedOption = document.createElement("option");
+    // owedOption.value = member;
+    // owedOption.textContent = member;
+    // expensesInputOwedBy.appendChild(owedOption);
   });
 }
 
@@ -143,9 +143,10 @@ addExpenseForm.addEventListener("submit", function (event) {
   const amount = expensesInputAmount.value;
   const type = expenseInputCategory.value;
   const paidBy = expensesInputPaidBy.value;
-  const owedBy = expensesInputOwedBy.value;
+  // const owedBy = expensesInputOwedBy.value;
 
-  if (!date || !expense || !amount || !type || !paidBy || !owedBy) return;
+  // if (!date || !expense || !amount || !type || !paidBy || !owedBy) return;
+  if (!date || !expense || !amount || !type || !paidBy) return;
 
   // Create new expense object
   const newExpense = {
@@ -154,7 +155,7 @@ addExpenseForm.addEventListener("submit", function (event) {
     Amount: amount,
     Type: type,
     PaidBy: paidBy,
-    OwedBy: owedBy
+    // OwedBy: owedBy
   };
 
   // Push into expenses array
@@ -167,6 +168,35 @@ addExpenseForm.addEventListener("submit", function (event) {
   addExpenseForm.reset();
   expensesInputDate.value = today;
 });
+
+const expensesTable = document.getElementById('trip-expenses');
+
+function renderExpenses() {
+  // Clear table
+  expensesTable.innerHTML = `
+    <tr>
+      <th>Date</th>
+      <th>Expense</th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Paid By</th>
+      <th>Owed By</th>
+    </tr>
+  `;
+
+  // Add to expenses table
+  tripData.expenses.forEach(expense => {
+    const row = expensesTable.insertRow();
+    row.insertCell(0).textContent = expense.Date;
+    row.insertCell(1).textContent = expense.Expense;
+    row.insertCell(2).textContent = `$${expense.Amount.toFixed(2)}`;
+    row.insertCell(3).textContent = expense.Type;
+    row.insertCell(4).textContent = expense.PaidBy;
+    row.insertCell(5).textContent = expense.OwedBy;
+  });
+}
+
+renderExpenses();
 /*
 
 function formatDate(dateStr) {
@@ -177,35 +207,6 @@ function formatDate(dateStr) {
   });
 }
 
-// const expensesTable = document.getElementById('trip-expenses');
-
-function renderExpenses() {
-  // Clear existing rows (except header)
-  expensesTable.innerHTML = `
-    <tr>
-      <th>Date</th>
-      <th>Expense</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Paid By</th>
-      ${members.map(m => `<th>${m}</th>`).join('')}
-    </tr>
-  `;
-
-  expenses.forEach(exp => {
-    const row = expensesTable.insertRow();
-    row.insertCell(0).textContent = formatDate(exp.Date);
-    row.insertCell(1).textContent = exp.Expense;
-    row.insertCell(2).textContent = `$${exp.Amount}`;
-    row.insertCell(3).textContent = exp.Type;
-    row.insertCell(4).textContent = exp.PaidBy;
-
-    members.forEach(member => {
-      const splitAmount = exp.Split?.[member.replace(/\s+/g, "")] || "$0";
-      row.insertCell().textContent = splitAmount;
-    });
-  });
-}
 /*
 function calculateSummary() {
   const summary = [];
