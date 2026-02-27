@@ -128,52 +128,46 @@ const addExpenseForm = document.getElementById("add-expense");
 const expensesInputDate = document.getElementById('date');
 const expensesInputExpense = document.getElementById('expense');
 const expensesInputAmount = document.getElementById('amount');
-const expenseInputCategory = document.getElementById('expenseCategory');
+const expenseInputCategory = document.getElementById('expenseType');
 
 const today = new Date().toISOString().split("T")[0];
 
 // Set default date to current date
 expensesInputDate.value = today;
 
-addExpenseForm.
 addExpenseForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const date = expensesInputDate.value;
-  const expense = expenseInputExpense.value.trim();
+  const expense = expensesInputExpense.value.trim();
   const amount = expensesInputAmount.value;
-  const type = expenseInputType.value;
+  const type = expenseInputCategory.value;
   const paidBy = expensesInputPaidBy.value;
-  const owedBy = expenseInputOwedBy.value;
+  const owedBy = expensesInputOwedBy.value;
 
   if (!date || !expense || !amount || !type || !paidBy || !owedBy) return;
 
-  // Add to array
-  expenses.push({
+  // Create new expense object
+  const newExpense = {
     Date: date,
     Expense: expense,
     Amount: amount,
     Type: type,
     PaidBy: paidBy,
     OwedBy: owedBy
-  });
+  };
 
-  // Add row to expenses table
-  const row = expensesTable.insertRow();
+  // Push into expenses array
+  tripData.expenses.push(newExpense);
 
-  // replace this with function to populate tables
-  row.insertCell(0).textContent = date;
-  row.insertCell(1).textContent = expense;
-  row.insertCell(2).textContent = `$${amount}`;
-  row.insertCell(3).textContent = type;
-  row.insertCell(4).textContent = paidBy;
-  row.insertCell(5).textContent = owedBy;
+  console.log("New expense added:", newExpense);
+  console.log("Updated expenses array:", tripData.expenses);
 
   // Reset form
   addExpenseForm.reset();
-  expensesInputDate.value = new Date().toISOString().split("T")[0];
-  console.log(expenses)
+  expensesInputDate.value = today;
 });
+/*
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -185,7 +179,6 @@ function formatDate(dateStr) {
 
 // const expensesTable = document.getElementById('trip-expenses');
 
-/*
 function renderExpenses() {
   // Clear existing rows (except header)
   expensesTable.innerHTML = `
