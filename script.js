@@ -19,7 +19,7 @@ let tripData = {
 };
 
 const expensesInputPaidBy = document.getElementById('paidBy');
-const expenseInputOwedBy = document.getElementById('owedBy');
+const expensesInputOwedBy = document.getElementById('owedBy');
 
 // Members
 const membersTable = document.getElementById('trip-members');
@@ -30,7 +30,7 @@ function renderMembers() {
   // Clear table
   membersTable.innerHTML = "";
   expensesInputPaidBy.innerHTML = "";
-  expenseInputOwedBy.innerHTML = "";
+  expensesInputOwedBy.innerHTML = "";
 
   // Add to members table
   tripData.members.forEach(member => {
