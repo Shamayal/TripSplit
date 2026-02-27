@@ -18,6 +18,9 @@ let tripData = {
   ]
 };
 
+const expensesInputPaidBy = document.getElementById('paidBy');
+const expenseInputOwedBy = document.getElementById('owedBy');
+
 // Members
 const membersTable = document.getElementById('trip-members');
 const addMembersForm = document.getElementById('add-member');
@@ -26,6 +29,8 @@ const nameInput = document.getElementById('name');
 function renderMembers() {
   // Clear table
   membersTable.innerHTML = "";
+  expensesInputPaidBy.innerHTML = "";
+  expenseInputOwedBy.innerHTML = "";
 
   // Add to members table
   tripData.members.forEach(member => {
@@ -34,17 +39,17 @@ function renderMembers() {
     cell.textContent = member;
   });
 
-  // Add member to dropdown
+  // Add member to dropdowns
   tripData.members.forEach(member => {
-    // const paidOption = document.createElement("option");
-    // paidOption.value = memberName;
-    // paidOption.textContent = memberName;
-    // expensesInputPaidBy.appendChild(paidOption);
+    const paidOption = document.createElement("option");
+    paidOption.value = member;
+    paidOption.textContent = member;
+    expensesInputPaidBy.appendChild(paidOption);
 
-    // const owedOption = document.createElement("option");
-    // owedOption.value = memberName;
-    // owedOption.textContent = memberName;
-    // expensesInputOwedBy.appendChild(owedOption);
+    const owedOption = document.createElement("option");
+    owedOption.value = member;
+    owedOption.textContent = member;
+    expensesInputOwedBy.appendChild(owedOption);
   });
 }
 
@@ -117,17 +122,20 @@ addCategoryForm.addEventListener("submit", function (event) {
 });
 
 renderCategories();
-
 /*
-// Adding New Expenses to the Trip Expenses Table
-const addExpenseForm = document.getElementById('add-expense');
+// Expenses
+const addExpenseForm = document.getElementById("add-expense");
+const categoryTypeSelect = document.getElementById("categoryType");
+const categoryNameInput = document.getElementById("categoryName");
+// Dropdown in the Add Expense form
+const expenseTypeSelect = document.getElementById("expenseType");
+
 const expensesTable = document.getElementById('trip-expenses');
 const expensesInputDate = document.getElementById('date');
 const expenseInputExpense = document.getElementById('expense');
 const expensesInputAmount = document.getElementById('amount');
 const expenseInputType = document.getElementById('expenseType');
-const expensesInputPaidBy = document.getElementById('paidBy');
-const expenseInputOwedBy = document.getElementById('owedBy');
+
 
 const today = new Date().toISOString().split("T")[0];
 expensesInputDate.value = today;
@@ -171,21 +179,6 @@ addExpenseForm.addEventListener("submit", function (event) {
   console.log(expenses)
 });
 
-// function to add to expenses array
-function addExpense() {
-  
-}
-
-function renderExpenseCategories() {
-  
-}
-// create functions to delete items from tables
-
-
-// create function to delete member - would it delete calculations?
-
-// create function to add or delete trips
-
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString("en-US", {
     month: "short",
@@ -221,7 +214,7 @@ function renderExpenses() {
     });
   });
 }
-
+/*
 function calculateSummary() {
   const summary = [];
   return summary;
