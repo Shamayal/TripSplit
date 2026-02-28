@@ -97,7 +97,8 @@ function renderCategories() {
   // Add to categories dropdown
   tripData.categories.forEach(category => {
     const option = document.createElement("option");
-    option.value = category.toLowerCase().replace(/\s+/g, "-");
+    // option.value = category.toLowerCase().replace(/\s+/g, "-");
+    option.value = category;
     option.textContent = category;
     categoryTypeSelect.appendChild(option);
     expenseTypeSelect.appendChild(option.cloneNode(true)); // maybe make it the same id
@@ -165,6 +166,7 @@ addExpenseForm.addEventListener("submit", function (event) {
   console.log("Updated expenses array:", tripData.expenses);
 
   // Reset form
+  renderExpenses();
   addExpenseForm.reset();
   expensesInputDate.value = today;
 });
@@ -189,23 +191,14 @@ function renderExpenses() {
     const row = expensesTable.insertRow();
     row.insertCell(0).textContent = expense.Date;
     row.insertCell(1).textContent = expense.Expense;
-    row.insertCell(2).textContent = `$${expense.Amount.toFixed(2)}`;
+    row.insertCell(2).textContent = `$${parseFloat(expense.Amount.value)}`;
     row.insertCell(3).textContent = expense.Type;
     row.insertCell(4).textContent = expense.PaidBy;
-    row.insertCell(5).textContent = expense.OwedBy;
+    // row.insertCell(5).textContent = expense.OwedBy;
   });
 }
 
 renderExpenses();
-/*
-
-function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric"
-  });
-}
 
 /*
 function calculateSummary() {
