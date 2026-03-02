@@ -191,7 +191,7 @@ function renderExpenses() {
     const row = expensesTable.insertRow();
     row.insertCell(0).textContent = expense.Date;
     row.insertCell(1).textContent = expense.Expense;
-    row.insertCell(2).textContent = `$${parseFloat(expense.Amount.value)}`;
+    row.insertCell(2).textContent = `$${(expense.Amount).toFixed(2)}`;
     row.insertCell(3).textContent = expense.Type;
     row.insertCell(4).textContent = expense.PaidBy;
     // row.insertCell(5).textContent = expense.OwedBy;
