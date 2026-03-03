@@ -141,7 +141,7 @@ addExpenseForm.addEventListener("submit", function (event) {
 
   const date = expensesInputDate.value;
   const expense = expensesInputExpense.value.trim();
-  const amount = expensesInputAmount.value;
+  const amount = parseFloat(expensesInputAmount.value);
   const type = expenseInputCategory.value;
   const paidBy = expensesInputPaidBy.value;
   // const owedBy = expensesInputOwedBy.value;
@@ -200,13 +200,13 @@ function renderExpenses() {
 
 renderExpenses();
 
-function calculateEvenSplit(tripExpense, members) {
-  const splitAmount = tripExpense.Amount / members.length;
+// function calculateEvenSplit(tripExpense, members) {
+//   const splitAmount = tripExpense.Amount / members.length;
 
-  const split = {};
-  members.forEach(member => {
-    split[member] = splitAmount.toFixed(2);
-  })
+//   const split = {};
+//   members.forEach(member => {
+//     split[member] = splitAmount.toFixed(2);
+//   })
   
-  return split;
-}
+//   return split;
+// }
