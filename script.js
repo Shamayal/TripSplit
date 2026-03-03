@@ -200,9 +200,13 @@ function renderExpenses() {
 
 renderExpenses();
 
-/*
-function calculateSummary() {
-  const summary = [];
-  return summary;
+function calculateEvenSplit(tripExpense, members) {
+  const splitAmount = tripExpense.Amount / members.length;
+
+  const split = {};
+  members.forEach(member => {
+    split[member] = splitAmount.toFixed(2);
+  })
+  
+  return split;
 }
-*/
