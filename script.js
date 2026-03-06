@@ -175,26 +175,43 @@ const expensesTable = document.getElementById('trip-expenses');
 
 function renderExpenses() {
   // Clear table
-  expensesTable.innerHTML = `
-    <tr>
-      <th>Date</th>
-      <th>Expense</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Paid By</th>
-      <th>Owed By</th>
-    </tr>
+  expensesTable.innerHTML = "";
+
+  const headerRow = expensesTable.insertRow();
+  headerRow.innerHTML = `
+    <th>Date</th>
+    <th>Expense</th>
+    <th>Amount</th>
+    <th>Type</th>
+    <th>Paid By</th>
   `;
 
-  // Add to expenses table
+  // Add a column for each member
+  tripData.members.forEach(member => {
+    const th = document.createElement("th");
+    th.textContent = member;
+    // append to header
+    headerRow.appendChild(th);
+  })
+
+  // Add row to expenses table
   tripData.expenses.forEach(expense => {
     const row = expensesTable.insertRow();
+
     row.insertCell(0).textContent = expense.Date;
     row.insertCell(1).textContent = expense.Expense;
     row.insertCell(2).textContent = `$${(expense.Amount).toFixed(2)}`;
     row.insertCell(3).textContent = expense.Type;
     row.insertCell(4).textContent = expense.PaidBy;
-    // row.insertCell(5).textContent = expense.OwedBy;
+
+    // Calculate even split
+    const splitAmount = expense.Amount / tripData.members.length;
+
+    // Add a cell for each member
+    tripData.members.forEach(member => {
+      const cell = row.insertCell();
+      cell.textContent = `$${splitAmount.toFixed(2)}`;
+    });
   });
 }
 
