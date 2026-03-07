@@ -227,3 +227,22 @@ renderExpenses();
   
 //   return split;
 // }
+
+const summaryTable = document.getElementById("summary-table");
+
+function renderSummary() {
+
+  // Clear table
+  summaryTable.innerHTML = `
+    <tr>
+      <th>Owes</th>
+      <th>To</th>
+      <th>Amount</th>
+    </tr>
+  `;
+
+  // calculate balances
+  // find creditors and debtors
+}
+
+renderSummary();
