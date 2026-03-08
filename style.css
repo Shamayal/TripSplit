@@ -100,3 +100,19 @@ box-shadow: 0 0 4px rgba(62, 81, 122, 0.4);
 }
 
 /* Buttons */
+button {
+  background-color: var(--dusk-blue);
+  color: var(--cream);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--vintage-berry);
+  transform: translateY(-2px);
+}
