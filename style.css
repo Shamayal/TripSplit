@@ -1,10 +1,11 @@
 /* Color Palette */
 :root {
-  --vintage-berry: #9A275A;
-  --blush-rose: #E36588;
-  --dusk-blue: #36558F;
-  --cream: #FBFFB9;
-  --sky-blue: #97D2FB;
+  --primary: #6366F1; 
+  --accent: #22C55E; 
+  --background: #F8FAFC; 
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+  --text: #1E293B;
 }
 
 /* Global styles */
@@ -16,8 +17,8 @@
 body {
   margin: 0;
   padding: 20px;
-  background-color: var(--blush-rose);
-  color: var(--vintage-berry);
+  background-color: var(--background);
+  color: var(--text);
 }
 
 /* Layout */
@@ -28,9 +29,10 @@ margin: 0 auto;
 }
 
 section {
-background-color: var(--cream);
+background-color: var(--card);
 padding: 20px;
 margin-bottom: 25px;
+border: 1 px solid var(--border);
 border-radius: 8px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
@@ -44,7 +46,7 @@ margin-bottom: 30px;
 
 h2 {
 margin-top: 0;
-color: var(--vintage-berry);
+color: var(--text);
 }
 
 /* Tables */
@@ -57,18 +59,18 @@ margin-bottom: 20px;
 
 th,
 td {
-border: 1px solid var(--sky-blue);
+border: 1px solid var(--border);
 padding: 10px;
 text-align: left;
 }
 
 th {
-background-color: var(--blush-rose);
-color: var(--vintage-berry);
+background-color: #F1F5F9;
+color: var(--text);
 }
 
 tr:nth-child(even) td {
-background-color: #f7fbfc;
+background-color: #F8FAFC;
 }
 
 /* Forms */
@@ -87,7 +89,7 @@ align-self: center;
 input,
 select {
 padding: 8px;
-border: 1px solid var(--sky-blue);
+border: 1px solid var(--border);
 border-radius: 4px;
 font-size: 14px;
 }
@@ -95,13 +97,13 @@ font-size: 14px;
 input:focus,
 select:focus {
 outline: none;
-border-color: var(--vintage-berry);
+border-color: var(--primary);
 box-shadow: 0 0 4px rgba(62, 81, 122, 0.4);
 }
 
 /* Buttons */
 button {
-  background-color: var(--dusk-blue);
+  background-color: var(--primary);
   color: var(--cream);
   padding: 10px 20px;
   font-size: 14px;
@@ -113,6 +115,6 @@ button {
 }
 
 button:hover {
-  background-color: var(--vintage-berry);
+  background-color: #4F46E5;
   transform: translateY(-2px);
 }
