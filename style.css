@@ -35,6 +35,12 @@ margin-bottom: 25px;
 border: 1 px solid var(--border);
 border-radius: 8px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 /* Typography */
@@ -75,6 +81,10 @@ color: var(--text);
 
 tr:nth-child(even) td {
 background-color: #F8FAFC;
+}
+
+tr:hover td {
+  background-color: #EEF2FF;
 }
 
 /* Forms */
