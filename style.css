@@ -84,7 +84,7 @@ background-color: #F8FAFC;
 }
 
 tr:hover td {
-  background-color: #EEF2FF;
+  background-color: var(--accent);
 }
 
 /* Forms */
