@@ -3,9 +3,9 @@ let tripData = {
   categories: [
     'Food 🌯',
     'Transportation ✈️',
-    'Souvenirs',
-    'Entertainment',
-    'Miscellaneous'
+    'Souvenirs 🛍️',
+    'Entertainment 🎭',
+    'Miscellaneous ✨'
   ],
   expenses: [
     {
