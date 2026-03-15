@@ -6,6 +6,7 @@
   --card: #FFFFFF;
   --border: #E2E8F0;
   --text: #1E293B;
+  --cream: #FFF7ED;
 }
 
 /* Global styles */
@@ -32,7 +33,7 @@ section {
 background-color: var(--card);
 padding: 20px;
 margin-bottom: 25px;
-border: 1 px solid var(--border);
+border: 1px solid var(--border);
 border-radius: 8px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -84,7 +85,7 @@ background-color: #F8FAFC;
 }
 
 tr:hover td {
-  background-color: var(--accent)g;
+  background-color: var(--accent);
 }
 
 /* Forms */
