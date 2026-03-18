@@ -242,6 +242,17 @@ function renderSummary() {
   `;
 
   // calculate balances
+  const balances = {};
+
+  tripData.members.forEach(member => {
+    balanches[member] = 0;
+  });
+
+  tripData.expenses.forEach(expense => {
+    tripData.members.forEach(member => {
+      balances[member] -= splitAmount;
+    });
+  })
   // find creditors and debtors
 }
 
